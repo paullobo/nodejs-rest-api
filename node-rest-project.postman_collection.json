@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "a0306f2b-55ac-4adf-8b03-1be496769de0",
+		"name": "node-rest-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add and Update Agency",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "app-subscription-key",
+						"value": "node-rest5ak378gnHakDh48tat06kmshaRs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"RANDOM AGENCY 6\",\r\n    \"phoneno\":1234567890,\r\n    \"address1\":\"101,102 room \",\r\n    \"address2\":\"some landmark\",\r\n    \"city\":\"Thane\",\r\n    \"state\":\"Maharashtra\",\r\n    \"clients\":[\r\n        {\r\n            \"name\":\"clt 3\",\r\n            \"email\":\"fsafsaf@asdfg.sd\",\r\n            \"phoneno\":1234567890,\r\n            \"totalBill\":12345\r\n        },\r\n        {\r\n            \"name\":\"clt 4\",\r\n            \"email\":\"test@mails.com\",\r\n            \"phoneno\":\"1234567890\",\r\n            \"totalBill\":3456\r\n        },\r\n        {\r\n            \"name\":\"clt 5\",\r\n            \"email\":\"test@mails.com\",\r\n            \"phoneno\":\"1234567890\",\r\n            \"totalBill\":7634\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4041/auth/addAgency",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"auth",
+						"addAgency"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-subscription-key",
+						"value": "node-rest5ak378gnHakDh48tat06kmshaRs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4041/auth/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"auth",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Client by Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "app-subscription-key",
+						"value": "node-rest5ak378gnHakDh48tat06kmshaRs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n     \"clientId\": \"5efb954eac96f537f4452533\",\r\n    \"totalBill\":10\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4041/auth/updateClient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"auth",
+						"updateClient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete agency by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "app-subscription-key",
+						"value": "node-rest5ak378gnHakDh48tat06kmshaRs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"agencyId\":\"5efd1a8edc2bc621fcde1a3f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4041/auth/deleteAgency",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"auth",
+						"deleteAgency"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
