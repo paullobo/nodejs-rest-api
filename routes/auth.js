@@ -8,5 +8,7 @@ router.put('/addAgency',auth.verifySubscription,authController.addUpdateAgency);
 router.post('/updateClient',auth.verifySubscription,authController.updateClient);
 router.delete('/deleteAgency',auth.verifySubscription,authController.deleteAgency);
 router.get('/clients',auth.verifySubscription,authController.getClients);
+router.get('/getMaxBill',auth.verifySubscription,authController.getMaxBill);
+router.get('/getMaxBills',auth.verifySubscription,authController.getMaxBills);
 
 module.exports = router

@@ -135,6 +135,60 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Max Bills ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-subscription-key",
+						"value": "node-rest5ak378gnHakDh48tat06kmshaRs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4041/auth/getMaxBills",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"auth",
+						"getMaxBills"
+					]
+				},
+				"description": "Max Clients from all agencies"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Max Bill",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-subscription-key",
+						"value": "node-rest5ak378gnHakDh48tat06kmshaRs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4041/auth/getMaxBill",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"auth",
+						"getMaxBill"
+					]
+				},
+				"description": "Get the maximum totalBill client across all agencies"
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}

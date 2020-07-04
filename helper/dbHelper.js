@@ -105,6 +105,37 @@ class DbHelper {
         }
     }
 
+    async getMaxBillClients() {
+        try {
+            await this.connect();
+
+
+            let client = await ClientModel.aggregate([
+                    {
+                        $group:{
+                            _id:'$agencyId',
+                             totalBill:{$max: '$totalBill'},
+                             client_name:{"$first":'$name'},
+                             name:{"$first":'$name'},
+                        }
+                    },
+                    {
+                        $lookup: { 
+                            from: "agencymodels", 
+                            localField: '_id', 
+                            foreignField: '_id', 
+                            as: 'agencyId' 
+                        } 
+                    }
+                ])
+
+            return client;
+        } catch (e) {
+            console.error("DbHelper Error while getMaxBillClients ::: ", e);
+            throw (e)
+        }
+    }
+
     async deleteAgencyById(_id){
         try {
             await this.connect();

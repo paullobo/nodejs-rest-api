@@ -120,6 +120,62 @@ const getClients = async (doc={}) => {
         throw (e);
     }
 }
+
+const getMaxBill = async () => {
+    try {
+
+        // Get only on maximum total bill client across agencies
+        let clients = await dbInstance.getAllClients({},1);
+        let clientList =[];
+        if(clients && clients.length>0){
+            for(c of clients){
+                clientList.push({
+                    clientId:c._id,
+                    clientName:c.name,
+                    agencyId:c.agencyId && c.agencyId._id? c.agencyId._id:'',
+                    agencyName:c.agencyId && c.agencyId.name? c.agencyId.name:'',
+                    totalBill:c.totalBill,
+                })
+            }
+        }
+
+        return {
+            client:clientList
+        };
+
+    } catch (e) {
+        throw (e);
+    }
+}
+
+const getMaxBills = async () => {
+    try {
+
+        // Get all clients and corresponding agency data
+        let clients = await dbInstance.getMaxBillClients();
+        let clientList =[];
+
+        if(clients && clients.length>0){
+            for(c of clients){
+
+                clientList.push({
+                    clientId:c._id,
+                    clientName:c.name,
+                    agencyId:c.agencyId && c.agencyId[0]._id? c.agencyId[0]._id:'',
+                    agencyName:c.agencyId && c.agencyId[0].name? c.agencyId[0].name:'',
+                    totalBill:c.totalBill,
+                })
+            }
+        }
+
+        return {
+            clients:clientList
+        };
+
+    } catch (e) {
+        throw (e);
+    }
+}
  
 const deleteAgency = async (doc,token) => {
     try {
@@ -149,5 +205,7 @@ module.exports = {
     updateAgency,
     updateClient,
     deleteAgency,
-    getClients
+    getClients,
+    getMaxBill,
+    getMaxBills
 }

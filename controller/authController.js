@@ -69,9 +69,31 @@ const getClients = async (req, res) => {
     }
 }
 
+const getMaxBill = async (req, res) => {
+    try {
+        // fetching the client with maximum bill all over agencies
+        const response = await authProvider.getMaxBill();
+        return _handleResponse(req, res, null,response);
+    } catch (e) {
+        return _handleResponse(req, res, e);
+    }
+}
+
+const getMaxBills = async (req, res) => {
+    try {
+        // fetching all clients with maximum bill all over agencies
+        const response = await authProvider.getMaxBills();
+        return _handleResponse(req, res, null,response);
+    } catch (e) {
+        return _handleResponse(req, res, e);
+    }
+}
+
 module.exports = {
     addUpdateAgency,
     updateClient,
     deleteAgency,
-    getClients
+    getClients,
+    getMaxBill,
+    getMaxBills
 }
